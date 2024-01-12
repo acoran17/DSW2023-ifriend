@@ -1,0 +1,22 @@
+{
+    "name": "dsw/ifriend",
+    "type": "project",
+    "require": {
+        "illuminate/database": "^10.40",
+        "jenssegers/blade":"^2.0",
+        "philo/laravel-blade": "^3.1",
+        "altorouter/altorouter": "^2.0",
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dsw\\Ifriend\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Cristo Acorán",
+            "email": "cristo27603@gmail.com"
+        }
+    ]
+}
