@@ -1,8 +1,16 @@
 <?php
 
-// Namespace
+// Classes
 require_once '../vendor/autoload.php';
-$namespace = 'DSW\\ifriend\\';
+use Jenssegers\Blade\Blade;
+
+// Data
+$dotenv = Dotenv\Dotenv::createImmutable('../');
+$dotenv->load();
+
+$views = '../src/views';
+$cache = '../cache';
+$blade = new Blade($views, $cache);
 
 // Router
 $router = new AltoRouter();
@@ -13,7 +21,7 @@ if ($match) {
   $target = $match['target'];
   if (is_string($target) && strpos($target, '#') !== false) {
     list($controller, $action) = explode('#', $target);
-    $controller = $namespace . 'Controllers\\' . $controller;
+    $controller = $_ENV['NAMESPACE'] . 'Controllers\\' . $controller;
     $controller = new $controller($router);
     $controller->$action($match['params']);
   } else {
