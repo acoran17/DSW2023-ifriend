@@ -10,7 +10,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Dsw\\Ifriend\\": "src/"
+            "DSW\\Ifriend\\": "src/"
         }
     },
     "authors": [
