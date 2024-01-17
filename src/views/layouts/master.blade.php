@@ -10,10 +10,11 @@
 <body>
   @include('layouts.header')
 
-  <h1>@yield('title')</h1>
-  
-  @section('content')
-    <h2>No se ha encontrado</h2>
-  @show
+  <div class="container">
+    <h1>@yield('title')</h1>
+    @section('content')
+      <h2>No se ha encontrado</h2>
+    @show
+  </div>
 </body>
 </html>
