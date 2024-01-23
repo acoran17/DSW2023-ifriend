@@ -9,28 +9,38 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{{$router->generate('index')}}">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{$router->generate('user_index')}}">Users</a>
-        </li>
-        <!-- <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
+        @if(isset($_SESSION['id']))
+          <li class="nav-item">
+            <a class="nav-link" href="{{$router->generate('user_index')}}">Users</a>
+          </li>
+        @endif
+      </ul>
+      @if(isset($_SESSION['id']))
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Filter</button>
+      </form>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" role="User-options" data-bs-toggle="dropdown" aria-expanded="false">
+            {{$_SESSION['user']}}
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">Action</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="{{$router->generate('logout')}}">Logout</a></li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-        </li> -->
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Filtrar</button>
-      </form>
+      @else
+        <form method="post" class="d-flex" role="login" action="{{$router->generate('validate')}}"
+        >
+          <input class="form-control me-2" type="text" placeholder="Name" aria-label="Name" id="inputName" name="inputName">
+          <input class="form-control me-2" type="password" placeholder="Password" aria-label="Password" id="inputPassword" name="inputPassword">
+          <button class="btn btn-outline-success" type="submit">Login</button>
+        </form>
+      @endif
     </div>
   </div>
 </nav>

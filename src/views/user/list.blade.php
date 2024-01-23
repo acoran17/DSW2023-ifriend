@@ -3,6 +3,7 @@
 @section('title', 'Lista de usuarios')
 
 @section('content')
+  <a href="{{$router->generate('user_create')}}" class="btn btn-success">New User</a>
   <table class="table">
     <thead>
       <tr>
@@ -22,6 +23,7 @@
         <td>{{ $user->mail }}</td>
         <td>
           <a href="{{$router->generate('user_delete', ['id' => $user->id])}}" class="btn btn-danger">Delete</a>
+          <a href="{{$router->generate('user_edit', ['id' => $user->id])}}" class="btn btn-warning">Edit</a>
         </td>
       </tr>
       @endforeach

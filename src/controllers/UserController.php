@@ -17,7 +17,7 @@ class UserController extends Controller{
     $id = $params['id'];
     $user = User::find($id);
     $user->delete();
-    header('Location: /users');
+    header("Location: {$this->router->generate('user_index')}");
   }
 
   public function create() {
@@ -25,7 +25,29 @@ class UserController extends Controller{
     echo $this->blade->make('user.create', compact('router'))->render();
   }
 
-  public function post($params) {
-    var_dump($params);
+  public function post() {
+    $user = new User();
+    $user->name = $_POST['inputName'];
+    $user->password = $_POST['inputPassword'];
+    $user->mail = $_POST['inputEmail'];
+    $user->save();
+    header("Location: {$this->router->generate('user_index')}");
+  }
+
+  public function edit($params) {
+    $id = $params['id'];
+    $user = User::find($id);
+
+    $router = $this->router;
+    echo $this->blade->make('user.edit', compact('router', 'user'))->render();
+  }
+
+  public function update($params) {
+    $user = User::find($params['id']);
+    $user->name = $_POST['inputName'];
+    $user->password = $_POST['inputPassword'];
+    $user->mail = $_POST['inputEmail'];
+    $user->save();
+    header("Location: {$this->router->generate('user_index')}");
   }
 }

@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 // Classes
 require_once '../vendor/autoload.php';

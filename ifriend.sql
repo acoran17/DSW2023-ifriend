@@ -7,6 +7,6 @@ CREATE TABLE `users`(
     `name` VARCHAR(255) NOT NULL,
     `password` VARCHAR(20),
     `mail` VARCHAR(50),
-    `create_at` TIMESTAMP,
-    `update_at` TIMESTAMP
+    `created_at` TIMESTAMP,
+    `updated_at` TIMESTAMP
 );
