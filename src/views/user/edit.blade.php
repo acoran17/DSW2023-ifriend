@@ -1,3 +1,3 @@
 @extends('user.form')
 
-@section('title', 'Edit user')
+@section('title', 'Edit User')

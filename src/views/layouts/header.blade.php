@@ -13,6 +13,9 @@
           <li class="nav-item">
             <a class="nav-link" href="{{$router->generate('user_index')}}">Users</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{$router->generate('game_index')}}">Games</a>
+          </li>
         @endif
       </ul>
       @if(isset($_SESSION['id']))

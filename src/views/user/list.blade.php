@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Lista de usuarios')
+@section('title', 'Users')
 
 @section('content')
   <a href="{{$router->generate('user_create')}}" class="btn btn-success">New User</a>
